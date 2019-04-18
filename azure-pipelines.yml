@@ -23,8 +23,9 @@ steps:
     contents: '**/*.ipa'
     targetFolder: '$(build.artifactStagingDirectory)'
 - task: PublishBuildArtifacts@1
-- task: SSH@0
+- task: CmdLine@2
   inputs:
-    runOptions: 'commands'
-    commands: 'pwd
+    script: 'echo "Hello world!"
+pwd
+ls -ltr'
 ls -ltr'

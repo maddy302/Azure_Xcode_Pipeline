@@ -23,3 +23,8 @@ steps:
     contents: '**/*.ipa'
     targetFolder: '$(build.artifactStagingDirectory)'
 - task: PublishBuildArtifacts@1
+- task: SSH@0
+  inputs:
+    runOptions: 'commands'
+    commands: 'pwd
+ls -ltr'

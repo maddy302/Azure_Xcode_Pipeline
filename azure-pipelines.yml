@@ -25,4 +25,4 @@ steps:
 - task: PublishBuildArtifacts@1
 - task: CmdLine@2
   inputs:
-    script: 'pwd && ls -ltr'
+    script: 'pwd && ls -R'

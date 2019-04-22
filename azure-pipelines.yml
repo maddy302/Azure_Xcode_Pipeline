@@ -24,13 +24,6 @@ steps:
 # - task: CmdLine@2
 #   inputs:
 #     script: 'xcodebuild build-for-testing -scheme calculator -workspace **/*.xcodeproj/project.xcworkspace'
-- task: CmdLine@2
-  inputs:
-    script: 'pwd'
-
-- task: CmdLine@2
-  inputs:
-    script: 'cd ~/Library/Developer/Xcode/DerivedData/calculator*/Build/Products/Release-iphoneos/'
 
 - task: CmdLine@2
   inputs:
@@ -38,10 +31,10 @@ steps:
 
 - task: CmdLine@2
   inputs:
-    script: 'cp -r calculator.app /tmp/Payload'
+    script: 'cp -r ~/Library/Developer/Xcode/DerivedData/calculator*/Build/Products/Release-iphoneos/calculator.app /tmp/Payload'
 - task: CmdLine@2
   inputs:
-    script: 'cp -r ./calculatorUITests-Runner.app /tmp/tests'
+    script: 'cp -r ~/Library/Developer/Xcode/DerivedData/calculator*/Build/Products/Release-iphoneos/calculatorUITests-Runner.app /tmp/tests'
 - task: CmdLine@2
   inputs:
     script: 'zip -r /tmp/ipa/calculator.ipa /tmp/Payload'

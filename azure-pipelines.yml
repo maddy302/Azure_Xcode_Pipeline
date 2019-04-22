@@ -49,11 +49,13 @@ steps:
   inputs:
     script: 'ls -R /tmp'
 
-
-- task: CopyFiles@2
+- task: CmdLine@2
   inputs:
-    contents: '/tmp'
-    targetFolder: '$(build.artifactStagingDirectory)'
+    script: 'echo $(build.artifactStagingDirectory)'
+
+- task: CmdLine@2
+  inputs:
+    script: 'cp -r /tmp $(build.artifactStagingDirectory)'
 
 # - task: CopyFiles@2
 #   inputs:

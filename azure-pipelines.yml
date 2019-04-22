@@ -21,9 +21,9 @@ steps:
     configuration: 'Release'
     xcWorkspacePath: '**/*.xcodeproj/project.xcworkspace'
     xcodeVersion: 'default' # Options: 8, 9, 10, default, specifyPath
-- task: CmdLine@2
-  inputs:
-    script: 'xcodebuild build-for-testing -scheme calculator -workspace **/*.xcodeproj/project.xcworkspace'
+# - task: CmdLine@2
+#   inputs:
+#     script: 'xcodebuild build-for-testing -scheme calculator -workspace **/*.xcodeproj/project.xcworkspace'
 - task: CmdLine@2
   inputs:
     script: 'pwd'

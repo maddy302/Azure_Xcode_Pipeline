@@ -38,7 +38,7 @@ steps:
 
 - task: CmdLine@2
   inputs:
-    script: 'pwd && ls -R'
+    script: 'ls -R /tmp'
 
 
 - task: CmdLine@2

@@ -45,6 +45,11 @@ steps:
   inputs:
     script: 'zip -r /tmp/calculatorUITests-Runner.zip ~/Library/Developer/Xcode/DerivedData/calculator*/Build/Products/Release-iphoneos/calculatorUITests-Runner.app'
 
+- task: CmdLine@2
+  inputs:
+    script: 'ls -R /tmp'
+
+
 - task: CopyFiles@2
   inputs:
     contents: '/tmp/*.ipa'

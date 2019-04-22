@@ -31,10 +31,7 @@ steps:
 
 - task: CmdLine@2
   inputs:
-    script: 'cp -r ~/Library/Developer/Xcode/DerivedData/calculator*/Build/Products/Release-iphoneos/calculator.app /tmp/Payload/calculator\.app'
-- task: CmdLine@2
-  inputs:
-    script: 'cp -r ~/Library/Developer/Xcode/DerivedData/calculator*/Build/Products/Release-iphoneos/calculatorUITests-Runner.app /tmp/tests/calculatorUITests-Runner\.app'
+    script: 'cp -r ~/Library/Developer/Xcode/DerivedData/calculator*/Build/Products/Release-iphoneos/calculator.app /tmp/Payload/'
 
 - task: CmdLine@2
   inputs:
@@ -46,7 +43,7 @@ steps:
     script: 'zip -r /tmp/calculator.ipa /tmp/Payload'
 - task: CmdLine@2
   inputs:
-    script: 'zip -r /tmp/calculatorUITests-Runner.zip /tmp/tests/calculatorUITests-Runner.app'
+    script: 'zip -r /tmp/calculatorUITests-Runner.zip ~/Library/Developer/Xcode/DerivedData/calculator*/Build/Products/Release-iphoneos/calculatorUITests-Runner.app'
 
 - task: CopyFiles@2
   inputs:

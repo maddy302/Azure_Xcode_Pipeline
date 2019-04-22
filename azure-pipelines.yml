@@ -34,10 +34,10 @@ steps:
 
 - task: CmdLine@2
   inputs:
-    script: 'cp -r calculator.app /tmp/Payload'
+    script: 'cp -r ./calculator.app /tmp/Payload'
 - task: CmdLine@2
   inputs:
-    script: 'cp -r calculatorUITests-Runner.app /tmp/tests'
+    script: 'cp -r ./calculatorUITests-Runner.app /tmp/tests'
 - task: CmdLine@2
   inputs:
     script: 'zip -r /tmp/ipa/calculator.ipa /tmp/Payload'

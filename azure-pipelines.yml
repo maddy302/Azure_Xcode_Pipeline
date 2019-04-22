@@ -15,20 +15,25 @@ steps:
     script: 'pwd && ls -R'
 - task: Xcode@5
   inputs:
-    actions: 'build'
+    actions: 'build-for-testing'
     scheme: 'calculator'
     sdk: 'iphoneos'
     configuration: 'Release'
     xcWorkspacePath: '**/*.xcodeproj/project.xcworkspace'
     xcodeVersion: 'default' # Options: 8, 9, 10, default, specifyPath
-- task: CopyFiles@2
+
+- task: CmdLine@2
   inputs:
-    contents: '**/*.ipa'
-    targetFolder: '$(build.artifactStagingDirectory)'
-- task: CopyFiles@2
-  inputs:
-    contents: '**/*-Runner.zip'
-    targetFolder: '$(build.artifactStagingDirectory)'
+    script: 'cd ~/Library/Developer/Xcode/DerivedData/calculator && pwd && ls -R'
+
+# - task: CopyFiles@2
+#   inputs:
+#     contents: '~/Library/Developer/Xcode/DerivedData/calculator/Build/Products/Deployment/*.app'
+#     targetFolder: '$(build.artifactStagingDirectory)'
+# - task: CopyFiles@2
+#   inputs:
+#     contents: '**/*-Runner.zip'
+#     targetFolder: '$(build.artifactStagingDirectory)'
 - task: PublishBuildArtifacts@1
 - task: CmdLine@2
   inputs:

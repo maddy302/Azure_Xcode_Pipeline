@@ -10,6 +10,9 @@ pool:
   vmImage: 'macOS-10.13'
 
 steps:
+- task: CmdLine@2
+  inputs:
+    script: 'pwd && ls -R'
 - task: Xcode@5
   inputs:
     actions: 'build'

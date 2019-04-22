@@ -30,7 +30,7 @@ steps:
 
 - task: CmdLine@2
   inputs:
-    script: 'cd ~/Library/Developer/Xcode/DerivedData/calculator && pwd && ls -R'
+    script: 'cd ~/Library/Developer/Xcode/DerivedData && pwd && ls -R'
 
 # - task: CopyFiles@2
 #   inputs:

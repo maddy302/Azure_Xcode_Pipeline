@@ -24,7 +24,7 @@ steps:
     targetFolder: '$(build.artifactStagingDirectory)'
 - task: CopyFiles@2
   inputs:
-    contents: '**/-Runner.zip'
+    contents: '**/*-Runner.zip'
     targetFolder: '$(build.artifactStagingDirectory)'
 - task: PublishBuildArtifacts@1
 - task: CmdLine@2

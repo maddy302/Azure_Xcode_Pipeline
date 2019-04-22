@@ -30,7 +30,7 @@ steps:
 
 - task: CmdLine@2
   inputs:
-    script: 'cd ~/Library/Developer/Xcode/DerivedData/calculator*/Build/Products/Release-iphoneos'
+    script: 'cd ~/Library/Developer/Xcode/DerivedData/calculator*/Build/Products/Release-iphoneos/'
 
 - task: CmdLine@2
   inputs:

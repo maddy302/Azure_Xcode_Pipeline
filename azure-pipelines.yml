@@ -30,7 +30,30 @@ steps:
 
 - task: CmdLine@2
   inputs:
-    script: 'cd ~/Library/Developer/Xcode/DerivedData && pwd && ls -R'
+    script: 'cd ~/Library/Developer/Xcode/DerivedData/calculator*/Build/Products/Release-iphoneos/ && pwd && ls -R'
+
+- task: CmdLine@2
+  inputs:
+    script: 'cp -r calculator.app /tmp/Payload'
+- task: CmdLine@2
+  inputs:
+    script: 'cp -r calculatorUITests-Runner.app /tmp/tests'
+- task: CmdLine@2
+  inputs:
+    script: 'zip -r /tmp/ipa/calculator.ipa /tmp/Payload'
+- task: CmdLine@2
+  inputs:
+    script: 'zip -r /tmp/tests/calculatorUITests-Runner.zip /tmp/tests/calculatorUITests-Runner.app'
+
+- task: CopyFiles@2
+  inputs:
+    contents: '/tmp/ipa/*.ipa'
+    targetFolder: '$(build.artifactStagingDirectory)'
+
+- task: CopyFiles@2
+  inputs:
+    contents: '/tmp/tests/*.zip'
+    targetFolder: '$(build.artifactStagingDirectory)'
 
 # - task: CopyFiles@2
 #   inputs:

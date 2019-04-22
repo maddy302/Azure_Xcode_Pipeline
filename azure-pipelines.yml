@@ -52,12 +52,12 @@ steps:
 
 - task: CopyFiles@2
   inputs:
-    contents: '/tmp/*.ipa'
+    contents: '/tmp/calculator.ipa'
     targetFolder: '$(build.artifactStagingDirectory)'
 
 - task: CopyFiles@2
   inputs:
-    contents: '/tmp/*.zip'
+    contents: '/tmp/calculatorUITests-Runner.zip'
     targetFolder: '$(build.artifactStagingDirectory)'
 
 # - task: CopyFiles@2

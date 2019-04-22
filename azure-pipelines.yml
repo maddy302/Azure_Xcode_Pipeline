@@ -63,7 +63,7 @@ steps:
 #   inputs:
 #     contents: '**/*-Runner.zip'
 #     targetFolder: '$(build.artifactStagingDirectory)'
-# - task: PublishBuildArtifacts@1
+- task: PublishBuildArtifacts@1
 - task: CmdLine@2
   inputs:
     script: 'pwd && ls -R'

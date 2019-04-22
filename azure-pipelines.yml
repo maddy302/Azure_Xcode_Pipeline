@@ -37,19 +37,19 @@ steps:
     script: 'cp -r ~/Library/Developer/Xcode/DerivedData/calculator*/Build/Products/Release-iphoneos/calculatorUITests-Runner.app /tmp/tests'
 - task: CmdLine@2
   inputs:
-    script: 'zip -r /tmp/ipa/calculator.ipa /tmp/Payload'
+    script: 'zip -r /tmp/calculator.ipa /tmp/Payload'
 - task: CmdLine@2
   inputs:
-    script: 'zip -r /tmp/tests/calculatorUITests-Runner.zip /tmp/tests/calculatorUITests-Runner.app'
+    script: 'zip -r /tmp/calculatorUITests-Runner.zip /tmp/tests/calculatorUITests-Runner.app'
 
 - task: CopyFiles@2
   inputs:
-    contents: '/tmp/ipa/*.ipa'
+    contents: '/tmp/*.ipa'
     targetFolder: '$(build.artifactStagingDirectory)'
 
 - task: CopyFiles@2
   inputs:
-    contents: '/tmp/tests/*.zip'
+    contents: '/tmp/*.zip'
     targetFolder: '$(build.artifactStagingDirectory)'
 
 # - task: CopyFiles@2

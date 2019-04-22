@@ -30,11 +30,15 @@ steps:
 
 - task: CmdLine@2
   inputs:
-    script: 'cd ~/Library/Developer/Xcode/DerivedData/calculator*/Build/Products/Release-iphoneos/ && pwd && ls -R'
+    script: 'cd ~/Library/Developer/Xcode/DerivedData/calculator*/Build/Products/Release-iphoneos'
 
 - task: CmdLine@2
   inputs:
-    script: 'cp -r ./calculator.app /tmp/Payload'
+    script: 'pwd && ls -R'
+
+- task: CmdLine@2
+  inputs:
+    script: 'cp -r calculator.app /tmp/Payload'
 - task: CmdLine@2
   inputs:
     script: 'cp -r ./calculatorUITests-Runner.app /tmp/tests'

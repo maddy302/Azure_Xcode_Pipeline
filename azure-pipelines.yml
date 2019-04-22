@@ -31,10 +31,10 @@ steps:
 
 - task: CmdLine@2
   inputs:
-    script: 'cp -r ~/Library/Developer/Xcode/DerivedData/calculator*/Build/Products/Release-iphoneos/calculator.app /tmp/Payload/calculator.app'
+    script: 'cp -r ~/Library/Developer/Xcode/DerivedData/calculator*/Build/Products/Release-iphoneos/calculator.app /tmp/Payload/calculator\.app'
 - task: CmdLine@2
   inputs:
-    script: 'cp -r ~/Library/Developer/Xcode/DerivedData/calculator*/Build/Products/Release-iphoneos/calculatorUITests-Runner.app /tmp/tests/calculatorUITests-Runner.app'
+    script: 'cp -r ~/Library/Developer/Xcode/DerivedData/calculator*/Build/Products/Release-iphoneos/calculatorUITests-Runner.app /tmp/tests/calculatorUITests-Runner\.app'
 
 - task: CmdLine@2
   inputs:

@@ -35,7 +35,7 @@ steps:
 
 - task: CmdLine@2
   inputs:
-    script: 'cd /tmp && rm *-Runner.app && rm *module && rm *dSYM'
+    script: 'cd /tmp && rm -rf *-Runner.app && rm *module && rm *dSYM'
 
 - task: CmdLine@2
   inputs:

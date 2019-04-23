@@ -31,7 +31,7 @@ steps:
 
 - task: CmdLine@2
   inputs:
-    script: 'ls -R /tmp'
+    script: 'ls -R'
 
 # - task: CmdLine@2
 #   inputs:

@@ -55,7 +55,7 @@ steps:
 
 - task: CmdLine@2
   inputs:
-    script: 'cp -r /tmp $(build.artifactStagingDirectory)'
+    script: 'cp -r /tmp/calculator* $(build.artifactStagingDirectory)'
 
 # - task: CopyFiles@2
 #   inputs:

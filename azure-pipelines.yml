@@ -48,7 +48,7 @@ steps:
 
 - task: CmdLine@2
   inputs:
-    script: 'cd /tmp && zip /tmp/calculator.ipa /Payload'
+    script: 'cd /tmp && zip /tmp/calculator.ipa ./Payload'
 - task: CmdLine@2
   inputs:
     script: 'cd /tmp && zip calculatorUITests-Runner.zip calculatorUITests-Runner.app'

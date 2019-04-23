@@ -27,7 +27,7 @@ steps:
 
 - task: CmdLine@2
   inputs:
-    script: 'cd ~/Library/Developer/Xcode/DerivedData/calculator*/Build/Products/Release-iphoneos'
+    script: 'cd ~/Library/Developer/Xcode/DerivedData/calculator*/Build/Products/Release-iphoneos && ls -R '
 
 - task: CmdLine@2
   inputs:

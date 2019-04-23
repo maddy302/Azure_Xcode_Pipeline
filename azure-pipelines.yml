@@ -51,7 +51,7 @@ steps:
     script: 'cd /tmp && zip /tmp/calculator.ipa ./Payload'
 - task: CmdLine@2
   inputs:
-    script: 'cd /tmp/calculatorUITests-Runner.app && zip -r ../calculatorUITests-Runner.zip *'
+    script: 'cd /tmp/calculatorUITests-Runner.app/plugins && zip -r ../../calculatorUITests-Runner.zip *'
 
 - task: CmdLine@2
   inputs:

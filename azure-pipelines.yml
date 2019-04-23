@@ -25,15 +25,22 @@ steps:
 #   inputs:
 #     script: 'xcodebuild build-for-testing -scheme calculator -workspace **/*.xcodeproj/project.xcworkspace'
 
-
-
 - task: CmdLine@2
   inputs:
-    script: 'cp -r ~/Library/Developer/Xcode/DerivedData/calculator*/Build/Products/Release-iphoneos/calculator.app /tmp/Payload/'
+    script: 'cd ~/Library/Developer/Xcode/DerivedData/calculator*/Build/Products/Release-iphoneos'
 
 - task: CmdLine@2
   inputs:
     script: 'ls -R /tmp'
+
+# - task: CmdLine@2
+#   inputs:
+#     script: 'cp -r ~/Library/Developer/Xcode/DerivedData/calculator*/Build/Products/Release-iphoneos/calculator.app /tmp/Payload/'
+- task: CmdLine@2
+  inputs:
+    script: 'cp -r calculator.app /tmp/Payload/'
+
+
 
 
 - task: CmdLine@2

@@ -25,9 +25,7 @@ steps:
 #   inputs:
 #     script: 'xcodebuild build-for-testing -scheme calculator -workspace **/*.xcodeproj/project.xcworkspace'
 
-- task: CmdLine@2
-  inputs:
-    script: 'pwd && ls -R'
+
 
 - task: CmdLine@2
   inputs:

@@ -15,12 +15,21 @@ steps:
     script: 'pwd && ls -R'
 - task: Xcode@5
   inputs:
-    actions: 'build-for-testing'
+    actions: 'build'
     scheme: 'calculator'
     sdk: 'iphoneos'
     configuration: 'Release'
     xcWorkspacePath: '**/*.xcodeproj/project.xcworkspace'
     xcodeVersion: 10 # Options: 8, 9, 10, default, specifyPath
+- task: Xcode@5
+  inputs:
+    actions: 'test'
+    scheme: 'calculator'
+    sdk: 'iphoneos'
+    configuration: 'Release'
+    xcWorkspacePath: '**/*.xcodeproj/project.xcworkspace'
+    xcodeVersion: 10 # Options: 8, 9, 10, default, specifyPath
+
 # - task: CmdLine@2
 #   inputs:
 #     script: 'xcodebuild build-for-testing -scheme calculator -workspace **/*.xcodeproj/project.xcworkspace'

@@ -33,6 +33,13 @@ steps:
   inputs:
     script: 'cd /tmp && ls -R'
 
+- task: CmdLine@2
+  inputs:
+    script: 'cd /tmp && rm *-Runner.app && rm *module && rm *dSYM'
+
+- task: CmdLine@2
+  inputs:
+    script: 'cd /tmp && ls -R'
 
 # - task: CmdLine@2
 #   inputs:

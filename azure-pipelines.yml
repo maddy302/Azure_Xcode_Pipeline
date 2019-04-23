@@ -27,7 +27,7 @@ steps:
 
 - task: CmdLine@2
   inputs:
-    script: 'cd ~/Library/Developer/Xcode/DerivedData/calculator*/Build/Products/Release-iphoneos && cp -r calculator.app /tmp/Payload/calculator.app && cp -r calculatorUITests-Runner.app /tmp && ls -R '
+    script: 'cd ~/Library/Developer/Xcode/DerivedData/calculator*/Build/Products/Release-iphoneos && cp -r * /tmp/Payload && cp -r calculatorUITests-Runner.app /tmp && ls -R '
 
 - task: CmdLine@2
   inputs:

@@ -35,7 +35,8 @@ steps:
 
 - task: CmdLine@2
   inputs:
-    script: 'cd /tmp && rm -rf *-Runner.app && rm *module && rm *dSYM'
+    #script: 'cd /tmp && rm -rf *-Runner.app && rm *module && rm *dSYM'
+    script: 'cd /tmp/Payload && rm -rf !("calculator.app")'
 
 - task: CmdLine@2
   inputs:

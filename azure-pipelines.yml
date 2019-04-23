@@ -40,10 +40,10 @@ steps:
 
 - task: CmdLine@2
   inputs:
-    script: 'zip /tmp/calculator.ipa /tmp/Payload'
+    script: 'cd /tmp && zip /tmp/calculator.ipa /Payload'
 - task: CmdLine@2
   inputs:
-    script: 'zip /tmp/calculatorUITests-Runner.zip /tmp/calculatorUITests-Runner.app'
+    script: 'cd /tmp && zip calculatorUITests-Runner.zip calculatorUITests-Runner.app'
 
 - task: CmdLine@2
   inputs:

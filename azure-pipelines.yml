@@ -81,6 +81,10 @@ steps:
   inputs:
     script: 'rm -rf /tmp/*.app'
 
+- task: CmdLine@2
+  inputs:
+    script: 'ls -R /tmp'
+
 - task: PublishBuildArtifacts@1
 - task: CmdLine@2
   inputs:

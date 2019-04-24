@@ -32,7 +32,7 @@ steps:
 
 - task: CmdLine@2
   inputs:
-    script: 'xcodebuild build-for-testing -scheme calculator -workspace *.xcodeproj/project.xcworkspace -scheme calculator build CODE_SIGNING_ALLOWED=NO'
+    script: 'xcodebuild build-for-testing -scheme calculator -workspace *.xcodeproj/project.xcworkspace build CODE_SIGNING_ALLOWED=NO'
 
 - task: CmdLine@2
   inputs:

@@ -36,31 +36,34 @@ steps:
 
 - task: CmdLine@2
   inputs:
-    script: 'cd ~/Library/Developer/Xcode/DerivedData/calculator*/Build/Products/Release-iphoneos && cp -r . /tmp/Payload && cp -r calculatorUITests-Runner.app /tmp && ls -R '
+    script: 'rm -rf /tmp/*'
 
 - task: CmdLine@2
   inputs:
-    script: 'cd /tmp && ls -R'
-
-- task: CmdLine@2
-  inputs:
-    script: 'cd /tmp/Payload && rm -rf *-Runner.app && rm -rf *module && rm -rf *dSYM'
-    #script: 'cd /tmp/Payload && rm -rf !("calculator.app")'
-
-- task: CmdLine@2
-  inputs:
-    script: 'cd /tmp && ls -R'
+    script: 'sh app2ipa.sh ~/Library/Developer/Xcode/DerivedData/calculator*/Build/Products/Debug-iphoneos calculator'
 
 # - task: CmdLine@2
 #   inputs:
-#     script: 'cp -r calculator.app /tmp/Payload/'
+#     script: 'cd ~/Library/Developer/Xcode/DerivedData/calculator*/Build/Products/Release-iphoneos && cp -r . /tmp/Payload && cp -r calculatorUITests-Runner.app /tmp && ls -R '
 
-- task: CmdLine@2
-  inputs:
-    script: 'cd /tmp && zip /tmp/calculator.ipa ./Payload'
-- task: CmdLine@2
-  inputs:
-    script: 'cd /tmp/calculatorUITests-Runner.app/plugins && zip -r ../../calculatorUITests.zip *'
+# - task: CmdLine@2
+#   inputs:
+#     script: 'cd /tmp && ls -R'
+
+# - task: CmdLine@2
+#   inputs:
+#     script: 'cd /tmp/Payload && rm -rf *-Runner.app && rm -rf *module && rm -rf *dSYM'
+
+# - task: CmdLine@2
+#   inputs:
+#     script: 'cd /tmp && ls -R'
+
+# - task: CmdLine@2
+#   inputs:
+#     script: 'cd /tmp && zip /tmp/calculator.ipa ./Payload'
+# - task: CmdLine@2
+#   inputs:
+#     script: 'cd /tmp/calculatorUITests-Runner.app/plugins && zip -r ../../calculatorUITests.zip *'
 
 - task: CmdLine@2
   inputs:
@@ -74,14 +77,7 @@ steps:
   inputs:
     script: 'cp -r /tmp/calculator* $(build.artifactStagingDirectory)'
 
-# - task: CopyFiles@2
-#   inputs:
-#     contents: '~/Library/Developer/Xcode/DerivedData/calculator/Build/Products/Deployment/*.app'
-#     targetFolder: '$(build.artifactStagingDirectory)'
-# - task: CopyFiles@2
-#   inputs:
-#     contents: '**/*-Runner.zip'
-#     targetFolder: '$(build.artifactStagingDirectory)'
+
 - task: PublishBuildArtifacts@1
 - task: CmdLine@2
   inputs:

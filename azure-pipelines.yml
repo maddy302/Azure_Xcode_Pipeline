@@ -75,11 +75,11 @@ steps:
 
 - task: CmdLine@2
   inputs:
-    script: 'cp -r /tmp/calculator* $(build.artifactStagingDirectory)'
+    script: 'rm -rf /tmp/*.app'
 
 - task: CmdLine@2
   inputs:
-    script: 'rm -rf /tmp/*.app'
+    script: 'cp -r /tmp/calculator* $(build.artifactStagingDirectory)'
 
 - task: CmdLine@2
   inputs:

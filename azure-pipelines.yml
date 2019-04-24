@@ -20,15 +20,68 @@ steps:
     sdk: 'iphoneos'
     configuration: 'Release'
     xcWorkspacePath: '**/*.xcodeproj/project.xcworkspace'
-    xcodeVersion: 'default' # Options: 8, 9, 10, default, specifyPath
-- task: CopyFiles@2
+    xcodeVersion: 10 # Options: 8, 9, 10, default, specifyPath
+- task: Xcode@5
   inputs:
-    contents: '**/*.ipa'
-    targetFolder: '$(build.artifactStagingDirectory)'
-- task: CopyFiles@2
+    actions: 'test'
+    scheme: 'calculator'
+    sdk: 'iphoneos'
+    configuration: 'Release'
+    xcWorkspacePath: '**/*.xcodeproj/project.xcworkspace'
+    xcodeVersion: 10 # Options: 8, 9, 10, default, specifyPath
+
+# - task: CmdLine@2
+#   inputs:
+#     script: 'xcodebuild build-for-testing -scheme calculator -workspace **/*.xcodeproj/project.xcworkspace'
+
+- task: CmdLine@2
   inputs:
-    contents: '**/*-Runner.zip'
-    targetFolder: '$(build.artifactStagingDirectory)'
+    script: 'cd ~/Library/Developer/Xcode/DerivedData/calculator*/Build/Products/Release-iphoneos && cp -r . /tmp/Payload && cp -r calculatorUITests-Runner.app /tmp && ls -R '
+
+- task: CmdLine@2
+  inputs:
+    script: 'cd /tmp && ls -R'
+
+- task: CmdLine@2
+  inputs:
+    script: 'cd /tmp/Payload && rm -rf *-Runner.app && rm -rf *module && rm -rf *dSYM'
+    #script: 'cd /tmp/Payload && rm -rf !("calculator.app")'
+
+- task: CmdLine@2
+  inputs:
+    script: 'cd /tmp && ls -R'
+
+# - task: CmdLine@2
+#   inputs:
+#     script: 'cp -r calculator.app /tmp/Payload/'
+
+- task: CmdLine@2
+  inputs:
+    script: 'cd /tmp && zip /tmp/calculator.ipa ./Payload'
+- task: CmdLine@2
+  inputs:
+    script: 'cd /tmp/calculatorUITests-Runner.app/plugins && zip -r ../../calculatorUITests.zip *'
+
+- task: CmdLine@2
+  inputs:
+    script: 'ls -R /tmp'
+
+- task: CmdLine@2
+  inputs:
+    script: 'echo $(build.artifactStagingDirectory)'
+
+- task: CmdLine@2
+  inputs:
+    script: 'cp -r /tmp/calculator* $(build.artifactStagingDirectory)'
+
+# - task: CopyFiles@2
+#   inputs:
+#     contents: '~/Library/Developer/Xcode/DerivedData/calculator/Build/Products/Deployment/*.app'
+#     targetFolder: '$(build.artifactStagingDirectory)'
+# - task: CopyFiles@2
+#   inputs:
+#     contents: '**/*-Runner.zip'
+#     targetFolder: '$(build.artifactStagingDirectory)'
 - task: PublishBuildArtifacts@1
 - task: CmdLine@2
   inputs:

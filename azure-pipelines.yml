@@ -9,6 +9,9 @@ variables:
 steps:
 - task: CmdLine@2
   inputs:
+    script: 'ls -R'
+- task: CmdLine@2
+  inputs:
     script: 'xcodebuild build-for-testing -scheme calculator -workspace */*.xcodeproj/project.xcworkspace'
 
 - task: CmdLine@2

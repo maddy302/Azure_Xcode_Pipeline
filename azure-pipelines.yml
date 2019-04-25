@@ -32,7 +32,7 @@ steps:
 
 - task: CmdLine@2
   inputs:
-    script: 'xcodebuild build-for-testing -scheme calculator -workspace *.xcodeproj/project.xcworkspace build CODE_SIGNING_ALLOWED=NO'
+    script: 'xcodebuild build-for-testing -scheme $(project) -workspace *.xcodeproj/project.xcworkspace build CODE_SIGNING_ALLOWED=NO'
 
 - task: CmdLine@2
   inputs:
@@ -40,7 +40,7 @@ steps:
 
 - task: CmdLine@2
   inputs:
-    script: 'sh app2ipa.sh ~/Library/Developer/Xcode/DerivedData/calculator*/Build/Products/Debug-iphoneos calculator'
+    script: 'sh app2ipa.sh ~/Library/Developer/Xcode/DerivedData/$(project)*/Build/Products/Debug-iphoneos $(project)'
 
 # - task: CmdLine@2
 #   inputs:
@@ -79,7 +79,7 @@ steps:
 
 - task: CmdLine@2
   inputs:
-    script: 'cp -r /tmp/calculator* $(build.artifactStagingDirectory)'
+    script: 'cp -r /tmp/$(project)* $(build.artifactStagingDirectory)'
 
 - task: CmdLine@2
   inputs:
